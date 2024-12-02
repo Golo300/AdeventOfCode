@@ -46,12 +46,14 @@ def getSafeReportsOptimize(matrix, threshold) -> int:
             correct = checkDiff(line[i], line[i + 1], dir)
             if not correct:
                 hit += 1
+                if hit > threshold: break
                 jump = i + 1
                 if i >= cur_len - 1:
                     break
                 correctJump = checkDiff(line[i], line[i + 2], dir)
                 if not correctJump:
                     hit += 1
+                    if hit > threshold: break
         if hit <= threshold:
             safe += 1
 
