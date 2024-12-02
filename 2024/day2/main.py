@@ -46,14 +46,14 @@ def getSafeReportsOptimize(matrix, threshold) -> int:
             correct = checkDiff(line[i], line[i + 1], dir)
             if not correct:
                 hit += 1
-                if hit > threshold: break
+                if not threshold: break
                 jump = i + 1
                 if i >= cur_len - 1:
                     break
                 correctJump = checkDiff(line[i], line[i + 2], dir)
                 if not correctJump:
                     hit += 1
-                    if hit > threshold: break
+                    break
         if hit <= threshold:
             safe += 1
 
@@ -78,8 +78,8 @@ if __name__ == "__main__":
     f = open("input", "r")
     matrix = readInput(f)
 
-    safeReports = getSafeReportsOptimize(matrix, 0)
-    safeReportsOptimze = getSafeReportsOptimize(matrix, 1)
+    safeReports = getSafeReportsOptimize(matrix, False)
+    safeReportsOptimze = getSafeReportsOptimize(matrix, True)
     print(f"Solution part1: {safeReports}")
 
     safeReports = getSafeReports(matrix)
