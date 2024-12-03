@@ -45,7 +45,7 @@ def task2(input):
 
 if __name__ == "__main__":
     print("Day 3")
-    f = open("example_input", "r")
+    f = open("input", "r")
     input = readInput(f)
     print(f"Part1: {task1(input)}")
     print(f"Part2: {task2(input)}")
