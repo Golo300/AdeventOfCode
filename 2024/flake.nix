@@ -12,6 +12,7 @@
     devShells.${system}.default = pkgs.mkShell {
       packages = with pkgs; [
         python311
+        python311Packages.regex
       ];
     }; 
   };
