@@ -6,6 +6,16 @@ def readInput(f):
         input += line
     return input
 
+def task1(input):
+    sum = 0
+    regex = r"mul\((\d{1,3}),(\d{1,3})\)"
+    output = re.findall(regex, input)
+    if output:
+        sum = 0
+        for i, j in output:
+            sum += int(i) * int(j)
+    return sum
+
 def task2(input):
     sum = 0
 
@@ -35,14 +45,7 @@ def task2(input):
 
 if __name__ == "__main__":
     print("Day 3")
-    f = open("input", "r")
+    f = open("example_input", "r")
     input = readInput(f)
-    regex = r"mul\((\d{1,3}),(\d{1,3})\)"
-    output = re.findall(regex, input)
-    if output:
-        sum = 0
-        for i, j in output:
-            sum += int(i) * int(j)
-        print(f"Part1: {sum}")
-
+    print(f"Part1: {task1(input)}")
     print(f"Part2: {task2(input)}")
