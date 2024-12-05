@@ -69,4 +69,3 @@ if __name__ == "__main__":
     print(f"Part 1: {result}")
     result = countX(matrix)
     print(f"Part 2: {result}")
-
