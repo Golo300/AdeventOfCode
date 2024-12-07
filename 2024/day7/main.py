@@ -9,15 +9,22 @@ def readInput(f):
     return input
 
 def nextOperator(i, j , operator):
+    result = 0
     if operator == "+":
-        return i + j
-    if operator == "*":
-        return i * j
-    if operator == "|":
-        return int(str(i) + str(j))
-    raise Exception(f"unsupported operator {operator}")
+        result = i + j
+    elif operator == "*":
+        result =  i * j
+    elif operator == "|":
+        result = int(str(i) + str(j))
+    else:
+        raise Exception(f"unsupported operator {operator}")
+    if result < i:
+        raise Exception(f"illegal operator {operator} result {result} must be gretter than input {i}")
+    return result
 
 def calibrate(numbers, testValue, i, currentValue, operators):
+    if currentValue > testValue:
+        return False
     if i >= len(numbers) - 1: # last value
         return currentValue == testValue
 
