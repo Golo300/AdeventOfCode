@@ -1,4 +1,3 @@
-from copy import deepcopy
 
 def readInput(f):
     matrix = []
@@ -74,7 +73,6 @@ def task2(matrix):
 
     for y, line in enumerate(matrix):
         for x, n in enumerate(line):
-
             if n == 0:
                 nextsum= backtracking([x, y])
                 sum += nextsum
